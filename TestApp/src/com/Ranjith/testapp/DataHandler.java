@@ -19,7 +19,7 @@ public class DataHandler {
 	public static final String ITEM_PRICE="item_price";
 	public static final String ITEM_QUANTITY_AVAIL = "qty_avail";
 	public static final String ITEM_TABLE_NAME ="item_table";
-	public static final String ITEM_TABLE_CREATE = "CREATE TABLE item_table(id INTEGER PRIMARY KEY AUTOINCREMENT,item_name TEXT NOT NULL,item_price REAL NOT NULL,qty_avail REAL NOT NULL );";
+	public static final String ITEM_TABLE_CREATE = "CREATE TABLE item_table(item_name TEXT NOT NULL,item_price DOUBLE NOT NULL,qty_avail DOUBLE NOT NULL );";
 
 	DataBaseHelper dbhelper;
 	Context ctx;
@@ -68,7 +68,7 @@ public class DataHandler {
 	}
 	
 	//INSERT ITEMS INTO ITEM_TABLE
-	public long insertItem(String item_name,Float item_price,Float qty_avail){
+	public long insertItem(String item_name,Double item_price,Double qty_avail){
 		
 		ContentValues cv = new ContentValues();
 		cv.put(ITEM_NAME, item_name);
@@ -79,9 +79,9 @@ public class DataHandler {
 	}
 	
 	//RETRIEVE FROM TABLE
-	public Cursor returnItem()
+	public Cursor returnItembyName(String name)
 	{
-		return db.query(ITEM_TABLE_NAME, new String[]{ITEM_NAME, ITEM_PRICE,ITEM_QUANTITY_AVAIL},null, null, null, null, null);
+		return db.query(ITEM_TABLE_NAME, new String[]{ITEM_NAME, ITEM_PRICE,ITEM_QUANTITY_AVAIL},ITEM_NAME+"=?", new String[]{name}, null, null, null);
 	}
 	
 	//Make Array
