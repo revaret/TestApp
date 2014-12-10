@@ -8,6 +8,8 @@ import java.util.Set;
 
 
 
+
+
 import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -139,7 +141,7 @@ public class CheckOutActivity extends ActionBarActivity {
 		double total = 0;
 		for(int i=0;i<count;i++)
 			total = total+item_prices[i];
-		total_price_text.setText(String.valueOf(total));
+		total_price_text.setText(String.valueOf(total)+" Rs");
 		
 	}
 	
@@ -151,6 +153,12 @@ public class CheckOutActivity extends ActionBarActivity {
 		return true;
 	}
 
+	public void onBackPressed()
+	  {
+		startActivity(new Intent(this, HomeActivity.class));
+	    super.onBackPressed();
+	  }
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will

@@ -6,6 +6,7 @@ import java.util.Locale;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -86,7 +87,9 @@ public class ListViewAdapter extends BaseAdapter {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(mContext, itemsList.get(position).getName()+" is clicked", Toast.LENGTH_LONG).show();
+				Toast toast=Toast.makeText(mContext, itemsList.get(position).getName()+" is clicked", Toast.LENGTH_SHORT);
+				toast.setGravity(Gravity.TOP|Gravity.RIGHT, 0,80);
+				toast.show();
 				GlobalClass globe = new GlobalClass();
 				globe.myVal.add(itemsList.get(position).getName());
 				
