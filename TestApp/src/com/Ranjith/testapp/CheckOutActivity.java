@@ -104,8 +104,8 @@ public class CheckOutActivity extends ActionBarActivity {
 				public void onClick(View v) {
 					GlobalClass global = new GlobalClass();
 					global.myVal.add(getname);
-					Intent intent = new Intent(CheckOutActivity.this,CheckOutActivity.class);
-					startActivity(intent);
+					finish();
+					startActivity(getIntent());
 					//Toast.makeText(getBaseContext(),getname+" is clicked" , Toast.LENGTH_LONG).show();
 					
 				}
@@ -116,8 +116,8 @@ public class CheckOutActivity extends ActionBarActivity {
 				public void onClick(View v) {
 					GlobalClass globe = new GlobalClass();
 					globe.myVal.remove(getname);
-					Intent intent = new Intent(CheckOutActivity.this,CheckOutActivity.class);
-					startActivity(intent);
+					finish();
+					startActivity(getIntent());
 				}
 			});
 			double total_price = (unit_price)*(double)item_qtys[i];
