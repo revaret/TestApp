@@ -104,8 +104,12 @@ public class CheckOutActivity extends ActionBarActivity {
 				public void onClick(View v) {
 					GlobalClass global = new GlobalClass();
 					global.myVal.add(getname);
+					Intent intent = getIntent();
+					overridePendingTransition(0, 0);
+					intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 					finish();
-					startActivity(getIntent());
+					overridePendingTransition(0, 0);
+					startActivity(intent);
 					//Toast.makeText(getBaseContext(),getname+" is clicked" , Toast.LENGTH_LONG).show();
 					
 				}
@@ -116,8 +120,12 @@ public class CheckOutActivity extends ActionBarActivity {
 				public void onClick(View v) {
 					GlobalClass globe = new GlobalClass();
 					globe.myVal.remove(getname);
+					Intent intent = getIntent();
+					overridePendingTransition(0, 0);
+					intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 					finish();
-					startActivity(getIntent());
+					overridePendingTransition(0, 0);
+					startActivity(intent);
 				}
 			});
 			double total_price = (unit_price)*(double)item_qtys[i];
